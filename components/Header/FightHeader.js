@@ -1,40 +1,68 @@
-import { AppBar, Toolbar } from '@mui/material';
-import Image from 'next/image';
+import { AppBar, Grid, Toolbar, useMediaQuery } from '@mui/material';
+import SocialButton from '../SocialButtons/SocialButton';
+import SocialButtonsContainer from '../SocialButtonsContainer';
+import Logo from '../Logo';
+import AppBarTitle from '../AppBarTitle';
 
-const MainHeader = () => {
-  return (
-    <Toolbar
-      sx={{ display: 'flex', placeContent: 'center', placeItems: 'center' }}
-    >
-      <Image src="/images/fight.png" height={150} width={350} alt="FIGHT" />
-    </Toolbar>
-  );
-};
+const leftSocialList = ['facebook', 'instagram', 'twitter'];
 
-const SecondaryHeader = () => {
-  return (
-    <Toolbar
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-      }}
-    >
-      <Image src="/images/fight.png" height={100} width={200} alt="FIGHT" />
-    </Toolbar>
-  );
-};
+const rightSocialList = ['youtube', 'twitch', 'telegram'];
 
-export default function FightHeader({ isHome }) {
+export function FightHomeHeader(props) {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+
   return (
     <AppBar
+      className="h-full w-full shrink grow basis-2/12 py-4"
+      elevation={4}
       position="relative"
-      elevation={0}
-      square
-      className="row-span-1 h-full"
     >
-      {isHome && <MainHeader />}
-      {!isHome && <SecondaryHeader />}
+      <Toolbar className="h-full w-full ">
+        <Grid container className="relative h-full">
+          {!isMobile && (
+            <Grid item xs={2} alignItems="stretch" justifyContent="center">
+              <SocialButtonsContainer
+                socialList={leftSocialList}
+                buttonLabel="chi siamo"
+                buttonLink="/about"
+              />
+            </Grid>
+          )}
+          {isMobile && (
+            <Grid item xs={12} className="relative h-24">
+              <Logo />
+            </Grid>
+          )}
+          {!isMobile && (
+            <Grid item xs={8} className="relative h-24">
+              <Logo />
+            </Grid>
+          )}
+          {!isMobile && (
+            <Grid item xs={2} alignItems="stretch" justifyContent="center">
+              <SocialButtonsContainer
+                socialList={rightSocialList}
+                buttonLabel="manifesto"
+                buttonLink="/manifest"
+              />
+            </Grid>
+          )}
+          {isMobile && (
+            <Grid
+              item
+              xs={12}
+              className="my-2 flex items-center justify-center"
+            >
+              {leftSocialList.concat(...rightSocialList).map((social) => (
+                <SocialButton social={social} key={social} />
+              ))}
+            </Grid>
+          )}
+          <Grid item xs={12} textAlign="center">
+            <AppBarTitle />
+          </Grid>
+        </Grid>
+      </Toolbar>
     </AppBar>
   );
 }

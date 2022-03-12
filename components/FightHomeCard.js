@@ -5,8 +5,12 @@ export default function FightHomeCard({ href, label }) {
   const router = useRouter();
   return (
     <Card
-      className="h-32 basis-2/5 sm:h-full sm:w-full"
-      sx={{ bgcolor: 'primary.main', textAlign: 'center' }}
+      className="h-full w-full"
+      sx={{
+        bgcolor: 'primary.main',
+        textAlign: 'center',
+        color: 'secondary.main',
+      }}
     >
       <CardActionArea className="h-full" onClick={() => router.push(href)}>
         <CardHeader title={label} />
