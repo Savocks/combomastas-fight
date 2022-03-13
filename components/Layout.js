@@ -1,10 +1,15 @@
 import FightHeader from './Header/FightHeader';
 import FightFooter from './Footer/FightFooter';
-import { useRouter } from 'next/router';
-import { Paper } from '@mui/material';
+import { Box } from '@mui/material';
 
-export function HomeLayout({ children }) {
-  return <main>{children}</main>;
+function Layout({ children }) {
+  return (
+    <Box className="flex h-screen flex-col">
+      <FightHeader />
+      <main className="relative h-full shrink grow basis-8/12">{children}</main>
+      <FightFooter />
+    </Box>
+  );
 }
 
-export function MainLayout({ children }) {}
+export default Layout;

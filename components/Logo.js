@@ -1,18 +1,18 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function Logo() {
+  const router = useRouter();
+
   return (
-    <Link href="/">
-      <a>
-        <Image
-          src="/images/fight.png"
-          className="object-contain"
-          alt="Fight Logo"
-          layout="fill"
-        />
-      </a>
-    </Link>
+    <div className="mx-auto cursor-pointer" onClick={() => router.push('/')}>
+      <Image
+        src="/images/fight.png"
+        height={100}
+        width={200}
+        alt="Fight Logo"
+      />
+    </div>
   );
 }
 
