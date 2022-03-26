@@ -1,7 +1,6 @@
 import { getAllRoasterNames, getRoasterData } from '../../lib/roaster';
 
 export default function Roaster({ roasterData }) {
-  console.log(roasterData);
   return <div>ciao</div>;
 }
 

@@ -81,6 +81,8 @@ function FightHomeHeader() {
 }
 
 function FightMainHeader(props) {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+
   return (
     <AppBar
       elevation={4}
@@ -105,9 +107,11 @@ function FightMainHeader(props) {
           >
             <AppBarTitle />
           </Grid>
-          <Grid item xs={12}>
-            <FightMobileNavigation />
-          </Grid>
+          {!isMobile && (
+            <Grid item xs={12}>
+              <FightMobileNavigation />
+            </Grid>
+          )}
         </Grid>
       </Toolbar>
     </AppBar>
