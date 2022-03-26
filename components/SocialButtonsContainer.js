@@ -4,8 +4,8 @@ import { Button } from '@mui/material';
 
 function SocialButtonsContainer({ socialList, buttonLabel, buttonLink }) {
   return (
-    <div className="relative flex h-full w-full flex-col flex-wrap place-content-center place-items-stretch gap-2">
-      <div>
+    <div className="relative flex h-full w-full flex-col flex-wrap place-items-stretch gap-2">
+      <div className="flex items-center justify-center">
         {socialList.map((social) => (
           <SocialButton key={social} social={social} />
         ))}

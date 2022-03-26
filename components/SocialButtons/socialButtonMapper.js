@@ -4,6 +4,8 @@ import { IoLogoYoutube } from '@react-icons/all-files/io/IoLogoYoutube';
 import { IoLogoTwitter } from '@react-icons/all-files/io/IoLogoTwitter';
 import { IoLogoInstagram } from '@react-icons/all-files/io/IoLogoInstagram';
 import { FaTelegram } from '@react-icons/all-files/fa/FaTelegram';
+import { MdGroup } from '@react-icons/all-files/md/MdGroup';
+import { IoDocument } from '@react-icons/all-files/io5/IoDocument';
 
 const socialButtonList = {
   facebook: {
@@ -35,6 +37,16 @@ const socialButtonList = {
     label: 'Instagram',
     href: 'http://instagram.com',
     IconComponent: IoLogoInstagram,
+  },
+  aboutUs: {
+    label: 'about',
+    href: '/about',
+    IconComponent: MdGroup,
+  },
+  manifest: {
+    label: 'manifest',
+    href: '/manifest',
+    IconComponent: IoDocument,
   },
 };
 
