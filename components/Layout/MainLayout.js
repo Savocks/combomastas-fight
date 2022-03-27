@@ -1,11 +1,11 @@
-import FightHeader from './Header/FightHeader';
-import FightFooter from './Footer/FightFooter';
+import FightHeader from '../Header/FightHeader';
+import FightFooter from '../Footer/FightFooter';
 import { Box } from '@mui/material';
-import { FightDrawerContext } from './Drawer/FightDrawerContext';
+import { FightDrawerContext } from '../Drawer/FightDrawerContext';
 import { useState } from 'react';
-import FightDrawer from './Drawer/FightDrawer';
+import FightDrawer from '../Drawer/FightDrawer';
 
-function Layout({ children }) {
+function MainLayout({ children }) {
   const [open, toggleOpen] = useState(false);
 
   return (
@@ -22,4 +22,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default MainLayout;

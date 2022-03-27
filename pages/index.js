@@ -4,7 +4,7 @@ import FightHomeCard from '../components/FightHomeCard';
 export default function Index() {
   return (
     <Grid
-      className=" p-4 sm:p-12"
+      className=" p-4 md:p-12 lg:p-32"
       container
       sx={{
         height: '100%',
