@@ -38,7 +38,7 @@ export default function FightFooter({ children }) {
               </Grid>
               <Grid item xs={8} textAlign="center">
                 <Typography typography="caption">
-                  &copy; RIGHT COMBO MASTAS' ENTERTAINMENT
+                  &copy; RIGHT COMBO MASTAS&apos; ENTERTAINMENT
                 </Typography>
                 <Typography typography="caption">
                   POWERED BY COMBOSTUDIO.IT

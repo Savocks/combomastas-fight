@@ -10,7 +10,11 @@ function SocialButtonsContainer({ socialList, buttonLabel, buttonLink }) {
           <SocialButton key={social} social={social} />
         ))}
       </div>
-      <Link href={buttonLink} className="w-full shrink grow basis-full ">
+      <Link
+        href={buttonLink}
+        className="w-full shrink grow basis-full "
+        passHref
+      >
         <Button variant="contained" color="primary" component="a">
           {buttonLabel}
         </Button>

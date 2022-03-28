@@ -12,37 +12,37 @@ export function FightMobileNavigation() {
   }, [router]);
   return (
     <Box className="my-2 flex justify-center gap-4">
-      <Link href="/about">
+      <Link href="/about" passHref>
         <Button component="a" variant="contained">
           CHI SIAMO
         </Button>
       </Link>
-      <Link href="/studio">
+      <Link href="/studio" passHref>
         <Button component="a" variant="contained">
           STUDIO
         </Button>
       </Link>
-      <Link href="/roaster">
+      <Link href="/roaster" passHref>
         <Button component="a" variant="contained">
           #71417 MNGMNT
         </Button>
       </Link>
-      <Link href="/merchandising">
+      <Link href="/merchandising" passHref>
         <Button component="a" variant="contained">
           MERCH & WEAR
         </Button>
       </Link>
-      <Link href="/events">
+      <Link href="/events" passHref>
         <Button component="a" variant="contained">
           EVENTS
         </Button>
       </Link>
-      <Link href="/label">
+      <Link href="/label" passHref>
         <Button component="a" variant="contained">
           LABEL
         </Button>
       </Link>
-      <Link href="/manifest">
+      <Link href="/manifest" passHref>
         <Button component="a" variant="contained">
           MANIFEST
         </Button>

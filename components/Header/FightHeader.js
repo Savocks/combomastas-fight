@@ -54,7 +54,7 @@ function FightHomeHeader() {
             {isMobile && (
               <>
                 <Grid item xs={2} className="flex items-center justify-center">
-                  <Link href="/about">
+                  <Link href="/about" passHref>
                     <IconButton component="a" color="primary">
                       <MdGroup />
                     </IconButton>
@@ -64,7 +64,7 @@ function FightHomeHeader() {
                   <Logo />
                 </Grid>
                 <Grid item xs={2} className="flex items-center justify-center">
-                  <Link href="/manifest">
+                  <Link href="/manifest" passHref>
                     <IconButton component="a" color="primary">
                       <IoDocument />
                     </IconButton>

@@ -35,7 +35,7 @@ export default function FightDrawer({ drawerState }) {
       </IconButton>
       <Divider />
       <List onClick={() => drawerState.toggleOpen()}>
-        <Link href="/about">
+        <Link href="/about" passHref>
           <ListItem button component="a">
             <ListItemText
               color="primary"
@@ -47,7 +47,7 @@ export default function FightDrawer({ drawerState }) {
             </ListItemText>
           </ListItem>
         </Link>
-        <Link href="/studio">
+        <Link href="/studio" passHref>
           <ListItem button component="a">
             <ListItemText
               color="primary"
@@ -59,7 +59,7 @@ export default function FightDrawer({ drawerState }) {
             </ListItemText>
           </ListItem>
         </Link>
-        <Link href="/roaster">
+        <Link href="/roaster" passHref>
           <ListItem button component="a">
             <ListItemText
               color="primary"
@@ -71,7 +71,7 @@ export default function FightDrawer({ drawerState }) {
             </ListItemText>
           </ListItem>
         </Link>
-        <Link href="/merchandising">
+        <Link href="/merchandising" passHref>
           <ListItem button component="a">
             <ListItemText
               color="primary"
@@ -83,7 +83,7 @@ export default function FightDrawer({ drawerState }) {
             </ListItemText>
           </ListItem>
         </Link>
-        <Link href="/events">
+        <Link href="/events" passHref>
           <ListItem button component="a">
             <ListItemText
               color="primary"
@@ -95,7 +95,7 @@ export default function FightDrawer({ drawerState }) {
             </ListItemText>
           </ListItem>
         </Link>
-        <Link href="/label">
+        <Link href="/label" passHref>
           <ListItem button component="a">
             <ListItemText
               color="primary"
@@ -107,7 +107,7 @@ export default function FightDrawer({ drawerState }) {
             </ListItemText>
           </ListItem>
         </Link>
-        <Link href="/manifest">
+        <Link href="/manifest" passHref>
           <ListItem button component="a">
             <ListItemText
               color="primary"
@@ -131,7 +131,7 @@ export default function FightDrawer({ drawerState }) {
         </Box>
         <Box className="flex w-full flex-col items-center justify-center text-center">
           <Typography typography="caption">
-            &copy; RIGHT COMBO MASTAS' ENTERTAINMENT
+            &copy; RIGHT COMBO MASTAS&apos; ENTERTAINMENT
           </Typography>
           <Typography typography="caption">
             POWERED BY COMBOSTUDIO.IT

@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
+import Image from 'next/image';
 
 const ItemContainer = ({ items }) => {
   return (
@@ -37,7 +38,7 @@ const ItemElement = ({ item }) => {
             <IoClose />
           </IconButton>
           {item.previewImage && <video src={item.href} controls autoPlay />}
-          {!item.previewImage && <img src={item.href} alt={item.name} />}
+          {!item.previewImage && <Image src={item.href} alt={item.name} />}
         </Box>
       </Dialog>
     </Card>
