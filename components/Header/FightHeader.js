@@ -22,61 +22,62 @@ function FightHomeHeader() {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   return (
-    <AppBar
-      className="w-screen shrink grow basis-2/12 py-4"
-      elevation={4}
-      position="relative"
-    >
-      <Toolbar disableGutters className="w-full px-14">
-        <Grid container className="w-full">
-          {!isMobile && (
-            <>
-              <Grid item xs={2}>
-                <SocialButtonsContainer
-                  socialList={leftSocialList}
-                  buttonLabel="chi siamo"
-                  buttonLink="/about"
-                />
-              </Grid>
-              <Grid item xs={8} className="item-center flex justify-center">
-                <Logo />
-              </Grid>
-              <Grid item xs={2}>
-                <SocialButtonsContainer
-                  socialList={rightSocialList}
-                  buttonLabel="manifesto"
-                  buttonLink="/manifest"
-                />
-              </Grid>
-            </>
-          )}
-          {isMobile && (
-            <>
-              <Grid item xs={2} className="flex items-center justify-center">
-                <Link href="/about">
-                  <IconButton component="a" color="primary">
-                    <MdGroup />
-                  </IconButton>
-                </Link>
-              </Grid>
-              <Grid item xs={8} className="flex items-center justify-center">
-                <Logo />
-              </Grid>
-              <Grid item xs={2} className="flex items-center justify-center">
-                <Link href="/manifest">
-                  <IconButton component="a" color="primary">
-                    <IoDocument />
-                  </IconButton>
-                </Link>
-              </Grid>
-            </>
-          )}
-          <Grid item xs={12} textAlign="center">
-            <AppBarTitle />
+    <>
+      <AppBar
+        className="w-screen shrink grow basis-2/12 py-4"
+        elevation={4}
+        position="relative"
+      >
+        <Toolbar disableGutters className="w-full md:px-14">
+          <Grid container className="w-full">
+            {!isMobile && (
+              <>
+                <Grid item xs={2}>
+                  <SocialButtonsContainer
+                    socialList={leftSocialList}
+                    buttonLabel="chi siamo"
+                    buttonLink="/about"
+                  />
+                </Grid>
+                <Grid item xs={8} className="item-center flex justify-center">
+                  <Logo />
+                </Grid>
+                <Grid item xs={2}>
+                  <SocialButtonsContainer
+                    socialList={rightSocialList}
+                    buttonLabel="manifesto"
+                    buttonLink="/manifest"
+                  />
+                </Grid>
+              </>
+            )}
+            {isMobile && (
+              <>
+                <Grid item xs={2} className="flex items-center justify-center">
+                  <Link href="/about">
+                    <IconButton component="a" color="primary">
+                      <MdGroup />
+                    </IconButton>
+                  </Link>
+                </Grid>
+                <Grid item xs={8} className="flex items-center justify-center">
+                  <Logo />
+                </Grid>
+                <Grid item xs={2} className="flex items-center justify-center">
+                  <Link href="/manifest">
+                    <IconButton component="a" color="primary">
+                      <IoDocument />
+                    </IconButton>
+                  </Link>
+                </Grid>
+              </>
+            )}
+            <Grid item xs={12} textAlign="center"></Grid>
           </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      <AppBarTitle />
+    </>
   );
 }
 

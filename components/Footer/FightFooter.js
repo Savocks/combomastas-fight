@@ -1,13 +1,22 @@
-import { AppBar, Box, Button, Grid, Toolbar, Typography } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Button,
+  Grid,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import { useRouter } from 'next/router';
 
 export default function FightFooter({ children }) {
   const { pathname } = useRouter();
   const isHome = pathname === '/';
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   return (
     <>
-      {isHome && (
+      {!isMobile && isHome && (
         <AppBar
           elevation={4}
           component="footer"

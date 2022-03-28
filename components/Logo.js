@@ -8,8 +8,8 @@ function Logo() {
     <div className="mx-auto cursor-pointer" onClick={() => router.push('/')}>
       <Image
         src="/images/fight.png"
-        height={100}
-        width={200}
+        height={140}
+        width={320}
         alt="Fight Logo"
       />
     </div>

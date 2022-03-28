@@ -77,7 +77,10 @@ export default function Roaster({ roasterData }) {
           </Typography>
           <Box className="flex flex-wrap">
             {roasterData.socials.map((social) => (
-              <SocialButton social={social.socialName}></SocialButton>
+              <SocialButton
+                key={social.socialName}
+                social={social.socialName}
+              />
             ))}
           </Box>
         </Box>

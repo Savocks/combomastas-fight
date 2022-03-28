@@ -13,7 +13,7 @@ function AppBarTitle() {
   const isSecondLevelRoute = router.route.split('/').length > 2;
   const { open, toggleOpen } = useContext(FightDrawerContext);
   return (
-    <>
+    <div className="absolute top-[210px] left-[18%]">
       {isSecondLevelRoute && (
         <IconButton onClick={() => router.back()}>
           <HiOutlineChevronLeft />
@@ -21,18 +21,18 @@ function AppBarTitle() {
       )}
       <Typography
         className="mx-auto"
-        typography="h5"
-        letterSpacing={[8, 14]}
+        typography="h3"
+        letterSpacing={[8, 40]}
         color="primary"
       >
-        DREAMER & VISIONARY
+        &nbsp;&nbsp;DREAMER & VISIONARY
       </Typography>
       {isMobile && (
         <IconButton onClick={() => toggleOpen(!open)}>
           <IoMenu />
         </IconButton>
       )}
-    </>
+    </div>
   );
 }
 

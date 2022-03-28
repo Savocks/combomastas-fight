@@ -1,4 +1,6 @@
 import {
+  Box,
+  Button,
   ClickAwayListener,
   Divider,
   Drawer,
@@ -6,6 +8,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Typography,
 } from '@mui/material';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import Link from 'next/link';
@@ -16,7 +19,9 @@ export default function FightDrawer({ drawerState }) {
       sx={{
         '.MuiPaper-root': {
           width: '80vw',
-          py: '3em',
+          pt: '3em',
+          display: 'flex',
+          flexDirection: 'column',
         },
       }}
       anchor="right"
@@ -115,6 +120,24 @@ export default function FightDrawer({ drawerState }) {
           </ListItem>
         </Link>
       </List>
+      <Box className="mt-auto flex flex-col items-center justify-center gap-4 p-4">
+        <Box className="flex w-full justify-between">
+          <Button color="primary" variant="contained" component="a">
+            ISCRIVITI
+          </Button>
+          <Button color="primary" variant="contained" component="a">
+            SOSTIENICI
+          </Button>
+        </Box>
+        <Box className="flex w-full flex-col items-center justify-center text-center">
+          <Typography typography="caption">
+            &copy; RIGHT COMBO MASTAS' ENTERTAINMENT
+          </Typography>
+          <Typography typography="caption">
+            POWERED BY COMBOSTUDIO.IT
+          </Typography>
+        </Box>
+      </Box>
     </Drawer>
   );
 }
