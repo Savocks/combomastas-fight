@@ -36,19 +36,19 @@ export default function Index() {
       <Box className={styles.homePageNavigation}>
         <SiteSlogan />
         <div className={styles.homePageNavigation__navigationMenu}>
-          <Button classes="item" component="a" variant="contained">
+          <Button className="item" component="a" variant="contained">
             Studio
           </Button>
-          <Button classes="item" component="a" variant="contained">
+          <Button className="item" component="a" variant="contained">
             #71417 MNGMNT
           </Button>
-          <Button classes="item" component="a" variant="contained">
+          <Button className="item" component="a" variant="contained">
             MERCH & WEAR
           </Button>
-          <Button classes="item" component="a" variant="contained">
+          <Button className="item" component="a" variant="contained">
             EVENTI
           </Button>
-          <Button classes="item" component="a" variant="contained">
+          <Button className="item" component="a" variant="contained">
             LABEL
           </Button>
         </div>
