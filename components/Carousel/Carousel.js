@@ -29,7 +29,7 @@ const ItemElement = ({ item }) => {
       <CardActionArea onClick={() => setOpen(true)}>
         <CardMedia component="img" image={href} alt={item.name} />
       </CardActionArea>
-      <Dialog fullScreen open={open} sx={{ p: 10 }}>
+      <Dialog fullScreen open={open} sx={{ p: 4 }}>
         <Box className="relative flex h-full w-full items-center justify-center">
           <IconButton
             onClick={() => setOpen(false)}
@@ -38,7 +38,9 @@ const ItemElement = ({ item }) => {
             <IoClose />
           </IconButton>
           {item.previewImage && <video src={item.href} controls autoPlay />}
-          {!item.previewImage && <Image src={item.href} alt={item.name} />}
+          {!item.previewImage && (
+            <Image layout="fill" src={item.href} alt={item.name} />
+          )}
         </Box>
       </Dialog>
     </Card>

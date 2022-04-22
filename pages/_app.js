@@ -9,6 +9,7 @@ import { theme } from '../theme/theme';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import MainLayout from '../components/Layout/MainLayout';
+import 'normalize.css';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -35,9 +36,7 @@ function MyApp({ Component, pageProps }) {
       >
         <CircularProgress color="primary" />
       </Backdrop>
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

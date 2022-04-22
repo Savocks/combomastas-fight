@@ -6,12 +6,7 @@ function Logo() {
 
   return (
     <div className="mx-auto cursor-pointer" onClick={() => router.push('/')}>
-      <Image
-        src="/images/fight.png"
-        height={140}
-        width={320}
-        alt="Fight Logo"
-      />
+      <Image src="/images/fight.png" alt="Fight Logo" layout="fill" />
     </div>
   );
 }

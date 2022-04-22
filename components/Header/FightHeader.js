@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Box,
   Grid,
   IconButton,
   Toolbar,
@@ -14,13 +15,17 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { MdGroup } from '@react-icons/all-files/md/MdGroup';
 import { IoDocument } from '@react-icons/all-files/io5/IoDocument';
+import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
+import { HiOutlineChevronLeft } from '@react-icons/all-files/hi/HiOutlineChevronLeft';
+import { useContext } from 'react';
+import { FightDrawerContext } from '../Drawer/FightDrawerContext';
 const leftSocialList = ['facebook', 'instagram', 'twitter'];
 
 const rightSocialList = ['youtube', 'twitch', 'telegram'];
 
 function FightHomeHeader() {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
-
+  const { open, toggleOpen } = useContext(FightDrawerContext);
   return (
     <>
       <AppBar
@@ -39,7 +44,7 @@ function FightHomeHeader() {
                     buttonLink="/about"
                   />
                 </Grid>
-                <Grid item xs={8} className="item-center flex justify-center">
+                <Grid item xs={8} className="relative">
                   <Logo />
                 </Grid>
                 <Grid item xs={2}>
@@ -70,9 +75,16 @@ function FightHomeHeader() {
                     </IconButton>
                   </Link>
                 </Grid>
+                <Grid item xs={12} className="flex ">
+                  <IconButton
+                    className="ml-auto"
+                    onClick={() => toggleOpen(!open)}
+                  >
+                    <IoMenu />
+                  </IconButton>
+                </Grid>
               </>
             )}
-            <Grid item xs={12} textAlign="center"></Grid>
           </Grid>
         </Toolbar>
       </AppBar>
@@ -83,7 +95,9 @@ function FightHomeHeader() {
 
 function FightMainHeader(props) {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
-
+  const router = useRouter();
+  const isSecondLevelRoute = router.route.split('/').length > 2;
+  const { open, toggleOpen } = useContext(FightDrawerContext);
   return (
     <AppBar
       elevation={4}
@@ -113,6 +127,18 @@ function FightMainHeader(props) {
               <FightMobileNavigation />
             </Grid>
           )}
+          <Grid item xs={12} className="flex w-full justify-between ">
+            {isSecondLevelRoute && (
+              <IconButton className="mr-auto" onClick={() => router.back()}>
+                <HiOutlineChevronLeft />
+              </IconButton>
+            )}
+            {isMobile && (
+              <IconButton className="ml-auto" onClick={() => toggleOpen(!open)}>
+                <IoMenu />
+              </IconButton>
+            )}
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>
