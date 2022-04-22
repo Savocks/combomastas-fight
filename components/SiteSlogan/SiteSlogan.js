@@ -1,15 +1,21 @@
 import styles from './SiteSlogan.module.scss';
-import { Typography } from '@mui/material';
+import { styled, Typography } from '@mui/material';
+
+const TypographySlogan = styled(Typography)(({ theme }) => ({
+  textAlign: 'center',
+  alignSelf: 'center',
+  fontSize: '30px',
+  letterSpacing: '.2em',
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '35px',
+    letterSpacing: '0.6em',
+  },
+}));
 
 export default function SiteSlogan(props) {
   return (
-    <Typography
-      className={styles.siteSlogan}
-      color="primary"
-      component="h2"
-      typography="h3"
-    >
+    <TypographySlogan color="primary" component="h2" typography="h3">
       DREAMER & VISIONARY
-    </Typography>
+    </TypographySlogan>
   );
 }

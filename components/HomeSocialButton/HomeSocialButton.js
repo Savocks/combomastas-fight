@@ -8,7 +8,7 @@ export default function HomeSocialButton({
   buttonLabel,
   mobileButton,
 }) {
-  const isMobile = useMediaQuery('(max-width:425px)');
+  const isMobile = useMediaQuery('screen and (max-width:525px)');
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function HomeSocialButton({
           </Link>
         </div>
       )}
-      {isMobile && <SocialButton social={mobileButton} />}
+      {isMobile && <SocialButton social={mobileButton} isInternal />}
     </>
   );
 }
