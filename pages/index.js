@@ -120,21 +120,31 @@ export default function Index() {
       <HomeNavigationWrapper>
         <SiteSlogan />
         <HomeNavigation>
-          <Button className="item" component="a" variant="contained">
-            Studio
-          </Button>
-          <Button className="item" component="a" variant="contained">
-            #71417 MNGMNT
-          </Button>
-          <Button className="item" component="a" variant="contained">
-            MERCH & WEAR
-          </Button>
-          <Button className="item" component="a" variant="contained">
-            EVENTI
-          </Button>
-          <Button className="item" component="a" variant="contained">
-            LABEL
-          </Button>
+          <Link href="/studio" passHref>
+            <Button className="item" component="a" variant="contained">
+              Studio
+            </Button>
+          </Link>
+          <Link href="/roaster" passHref>
+            <Button className="item" component="a" variant="contained">
+              #71417 MNGMNT
+            </Button>
+          </Link>
+          <Link href="/merchandising" passHref>
+            <Button className="item" component="a" variant="contained">
+              MERCH & WEAR
+            </Button>
+          </Link>
+          <Link href="/events" passHref>
+            <Button className="item" component="a" variant="contained">
+              EVENTI
+            </Button>
+          </Link>
+          <Link href="/label" passHref>
+            <Button className="item" component="a" variant="contained">
+              LABEL
+            </Button>
+          </Link>
         </HomeNavigation>
       </HomeNavigationWrapper>
       {!isTablet && (
