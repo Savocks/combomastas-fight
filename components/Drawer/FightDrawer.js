@@ -1,40 +1,50 @@
 import {
   Box,
   Button,
-  ClickAwayListener,
   Divider,
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemText,
+  styled,
   Typography,
 } from '@mui/material';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import Link from 'next/link';
+import { useDrawer } from '../../context/DrawerContext';
 
-export default function FightDrawer({ drawerState }) {
+const SlantedRightButton = styled(Button)({
+  clipPath: 'polygon(0 0, 100% 0%, 85% 100%, 0 100%);',
+});
+const SlantedLeftButton = styled(Button)({
+  clipPath: 'polygon(15% 0, 100% 0%, 100% 100%, 0 100%);',
+});
+
+export default function FightDrawer(props) {
+  const { state, dispatch } = useDrawer();
+  console.log(state);
   return (
     <Drawer
       sx={{
         '.MuiPaper-root': {
-          width: '80vw',
+          width: '300px',
           pt: '3em',
           display: 'flex',
           flexDirection: 'column',
         },
       }}
       anchor="right"
-      open={drawerState.open}
+      open={state.open}
     >
       <IconButton
         className="absolute right-4 top-1"
-        onClick={() => drawerState.toggleOpen()}
+        onClick={() => dispatch({ type: 'close' })}
       >
         <IoClose />
       </IconButton>
       <Divider />
-      <List onClick={() => drawerState.toggleOpen()}>
+      <List onClick={() => dispatch({ type: 'close' })}>
         <Link href="/about" passHref>
           <ListItem button component="a">
             <ListItemText
@@ -121,13 +131,13 @@ export default function FightDrawer({ drawerState }) {
         </Link>
       </List>
       <Box className="mt-auto flex flex-col items-center justify-center gap-4 p-4">
-        <Box className="flex w-full justify-between">
-          <Button color="primary" variant="contained" component="a">
+        <Box className="grid w-full grid-cols-2 place-content-stretch place-items-stretch">
+          <SlantedRightButton color="primary" variant="contained" component="a">
             ISCRIVITI
-          </Button>
-          <Button color="primary" variant="contained" component="a">
+          </SlantedRightButton>
+          <SlantedLeftButton color="primary" variant="contained" component="a">
             SOSTIENICI
-          </Button>
+          </SlantedLeftButton>
         </Box>
         <Box className="flex w-full flex-col items-center justify-center text-center">
           <Typography typography="caption">

@@ -1,17 +1,11 @@
-import {
-  Box,
-  Button,
-  IconButton,
-  Paper,
-  styled,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, Button, Paper, styled } from '@mui/material';
 import Image from 'next/image';
-import styles from '../styles/components/Home.module.scss';
 import HomeSocialButton from '../components/HomeSocialButton/HomeSocialButton';
 import SiteSlogan from '../components/SiteSlogan/SiteSlogan';
-import { FaBars } from '@react-icons/all-files/fa/FaBars';
+import FightDrawer from '../components/Drawer/FightDrawer';
+
+import styles from '../styles/components/Home.module.scss';
+import { useDrawer } from '../context/DrawerContext';
 
 const HomeContainer = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -50,12 +44,7 @@ const HomeNavigationWrapper = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridRowGap: '1em',
   placeItems: 'stretch',
-  [theme.breakpoints.down('md')]: {
-    gridTemplateRows: '30px 50px auto',
-  },
-  [theme.breakpoints.up('md')]: {
-    gridTemplateRows: '50px auto',
-  },
+  gridTemplateRows: '50px auto',
 }));
 
 const HomeNavigation = styled(Box)(({ theme }) => ({
@@ -77,12 +66,10 @@ const HomeNavigation = styled(Box)(({ theme }) => ({
 }));
 
 export default function Index() {
-  const isBelowNotebook = useMediaQuery((theme) =>
-    theme.breakpoints.down('md')
-  );
+  const { state, dispatch } = useDrawer();
   return (
     <HomeContainer>
-      <HomeHeader>
+      <HomeHeader elevation={8}>
         <div className={styles.header__buttonContainer}>
           <HomeSocialButton
             socialList={['facebook', 'instagram', 'twitter']}
@@ -109,13 +96,6 @@ export default function Index() {
         </div>
       </HomeHeader>
       <HomeNavigationWrapper>
-        {isBelowNotebook && (
-          <div className="flex items-center justify-center text-center">
-            <IconButton color="primary">
-              <FaBars />
-            </IconButton>
-          </div>
-        )}
         <SiteSlogan />
         <HomeNavigation>
           <Button className="item" component="a" variant="contained">
@@ -135,7 +115,7 @@ export default function Index() {
           </Button>
         </HomeNavigation>
       </HomeNavigationWrapper>
-      <div>footer</div>
+      <Paper elevation={8}>footer</Paper>
     </HomeContainer>
   );
 }
