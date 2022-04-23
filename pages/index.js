@@ -1,20 +1,27 @@
-import { Box, Button, Paper, styled } from '@mui/material';
+import {
+  Box,
+  Button,
+  Paper,
+  styled,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import Image from 'next/image';
 import HomeSocialButton from '../components/HomeSocialButton/HomeSocialButton';
 import SiteSlogan from '../components/SiteSlogan/SiteSlogan';
-import FightDrawer from '../components/Drawer/FightDrawer';
+import Link from 'next/link';
 
 import styles from '../styles/components/Home.module.scss';
-import { useDrawer } from '../context/DrawerContext';
+import { useEffect } from 'react';
 
 const HomeContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   height: '100vh',
   display: 'grid',
-  gridTemplateRows: '100px auto 100px',
+  gridTemplateRows: '100px auto',
   gridRowGap: '1em',
   [theme.breakpoints.up('sm')]: {
-    gridTemplateRows: '150px auto 100px',
+    gridTemplateRows: '150px auto',
   },
   [theme.breakpoints.up('md')]: {
     gridTemplateRows: '250px auto 150px',
@@ -40,6 +47,17 @@ const HomeHeader = styled(Paper)(({ theme }) => ({
   },
 }));
 
+const HomeFooter = styled(Paper)(({ theme }) => ({
+  padding: '0 1.5em',
+  display: 'grid',
+  gridTemplateColumns: '150px auto 150px',
+  alignItems: 'center',
+  justifyItems: 'stretch',
+  [theme.breakpoints.up('lg')]: {
+    gridTemplateColumns: '200px auto 200px',
+  },
+}));
+
 const HomeNavigationWrapper = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridRowGap: '1em',
@@ -53,6 +71,7 @@ const HomeNavigation = styled(Box)(({ theme }) => ({
   gridTemplateColumns: '1fr 1fr',
   gap: '1em',
   placeItems: 'stretch',
+  paddingBottom: '1.5em',
   'a:last-child': {
     transform: 'translateX(50%)',
   },
@@ -66,7 +85,8 @@ const HomeNavigation = styled(Box)(({ theme }) => ({
 }));
 
 export default function Index() {
-  const { state, dispatch } = useDrawer();
+  const isTablet = useMediaQuery((theme) => theme.breakpoints.down('md'));
+  useEffect(() => {});
   return (
     <HomeContainer>
       <HomeHeader elevation={8}>
@@ -78,19 +98,21 @@ export default function Index() {
             mobileButton="aboutUs"
           />
         </div>
-        <div className={styles.header__logoContainer}>
-          <Image
-            src={'/images/fight.png'}
-            layout="fill"
-            objectFit="contain"
-            alt="Logo"
-          />
-        </div>
+        <Link href="/" passHref>
+          <a className={styles.header__logoContainer}>
+            <Image
+              src={'/images/fight.png'}
+              layout="fill"
+              objectFit="contain"
+              alt="Logo"
+            />
+          </a>
+        </Link>
         <div className={styles.header__buttonContainer}>
           <HomeSocialButton
             socialList={['youtube', 'twitch', 'telegram']}
             buttonHref="/about"
-            buttonLabel="chi siamo"
+            buttonLabel="manifesto"
             mobileButton="manifest"
           />
         </div>
@@ -115,7 +137,22 @@ export default function Index() {
           </Button>
         </HomeNavigation>
       </HomeNavigationWrapper>
-      <Paper elevation={8}>footer</Paper>
+      {!isTablet && (
+        <HomeFooter elevation={8}>
+          <Button component="a" variant="contained">
+            sostienici
+          </Button>
+          <Box className="flex w-full flex-col items-center justify-center text-center">
+            <Typography>
+              &copy; RIGHT COMBO MASTAS&apos; ENTERTAINMENT
+            </Typography>
+            <Typography>POWERED BY COMBOSTUDIO.IT</Typography>
+          </Box>
+          <Button component="a" variant="contained">
+            iscriviti
+          </Button>
+        </HomeFooter>
+      )}
     </HomeContainer>
   );
 }

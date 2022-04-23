@@ -24,7 +24,6 @@ const SlantedLeftButton = styled(Button)({
 
 export default function FightDrawer(props) {
   const { state, dispatch } = useDrawer();
-  console.log(state);
   return (
     <Drawer
       sx={{

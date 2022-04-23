@@ -1,6 +1,7 @@
 import { Box, styled, Typography } from '@mui/material';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import BackButton from '../BackButton/BackButton';
+import { useRouter } from 'next/router';
 
 const SiteSloganWrapper = styled(Box)((them) => ({
   display: 'flex',
@@ -22,9 +23,11 @@ const TypographySlogan = styled(Typography)(({ theme }) => ({
 }));
 
 export default function SiteSlogan(props) {
+  const router = useRouter();
+  const isBackButtonVisible = router.route.split('/').length > 2;
   return (
     <SiteSloganWrapper>
-      <BackButton />
+      {isBackButtonVisible && <BackButton />}
       <TypographySlogan color="primary" component="h2" typography="h3">
         DREAMER & VISIONARY
       </TypographySlogan>

@@ -1,13 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
+import SiteSlogan from '../SiteSlogan/SiteSlogan';
 
 export default function PageLayout({ pageTitle, pageDescription, children }) {
-  return (
-    <>
-      <Container maxWidth="xl" component="section">
-        {pageTitle}
-        {pageDescription}
-      </Container>
-      <Container component="section">{children}</Container>
-    </>
-  );
+  return <></>;
 }
