@@ -29,7 +29,6 @@ export default function FightDrawer(props) {
       sx={{
         '.MuiPaper-root': {
           width: '300px',
-          pt: '3em',
           display: 'flex',
           flexDirection: 'column',
         },

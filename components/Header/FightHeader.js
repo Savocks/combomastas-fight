@@ -18,7 +18,6 @@ import { IoDocument } from '@react-icons/all-files/io5/IoDocument';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import { HiOutlineChevronLeft } from '@react-icons/all-files/hi/HiOutlineChevronLeft';
 import { useContext } from 'react';
-import { FightDrawerContext } from '../Drawer/FightDrawerContext';
 const leftSocialList = ['facebook', 'instagram', 'twitter'];
 
 const rightSocialList = ['youtube', 'twitch', 'telegram'];
