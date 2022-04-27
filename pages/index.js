@@ -82,14 +82,6 @@ const HomeNavigation = styled(Box)(({ theme }) => ({
       transform: 'none',
     },
   },
-  ['(min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2)']:
-    {
-      padding: '1em',
-    },
-  ['(min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)']:
-    {
-      padding: '1em',
-    },
 }));
 
 export default function Index() {
