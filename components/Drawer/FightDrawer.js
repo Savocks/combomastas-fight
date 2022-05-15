@@ -14,6 +14,7 @@ import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import Link from 'next/link';
 import { useDrawer } from '../../context/DrawerContext';
 import Image from 'next/image';
+import SocialButton from '../SocialButtons/SocialButton';
 
 const SlantedRightButton = styled(Button)({
   clipPath: 'polygon(0 0, 100% 0%, 85% 100%, 0 100%);',
@@ -38,7 +39,7 @@ export default function FightDrawer(props) {
         sx={{
           height: '100%',
           display: 'grid',
-          gridTemplateRows: '150px auto 150px',
+          gridTemplateRows: '150px auto 200px',
         }}
       >
         <Box className="relative h-full">
@@ -155,6 +156,14 @@ export default function FightDrawer(props) {
             >
               SOSTIENICI
             </SlantedLeftButton>
+          </Box>
+          <Box>
+            <SocialButton social="facebook" />
+            <SocialButton social="instagram" />
+            <SocialButton social="twitter" />
+            <SocialButton social="youtube" />
+            <SocialButton social="twitch" />
+            <SocialButton social="telegram" />
           </Box>
           <Box className="flex w-full flex-col items-center justify-center text-center">
             <Typography typography="caption">

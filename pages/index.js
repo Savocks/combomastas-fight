@@ -13,6 +13,7 @@ import Link from 'next/link';
 
 import styles from '../styles/components/Home.module.scss';
 import { useEffect } from 'react';
+import FightLogo from '../components/Logo/Logo';
 
 const HomeContainer = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -98,16 +99,7 @@ export default function Index() {
             mobileButton="aboutUs"
           />
         </div>
-        <Link href="/" passHref>
-          <a className={styles.header__logoContainer}>
-            <Image
-              src={'/images/fight.png'}
-              layout="fill"
-              objectFit="contain"
-              alt="Logo"
-            />
-          </a>
-        </Link>
+        <FightLogo />
         <div className={styles.header__buttonContainer}>
           <HomeSocialButton
             socialList={['youtube', 'twitch', 'telegram']}

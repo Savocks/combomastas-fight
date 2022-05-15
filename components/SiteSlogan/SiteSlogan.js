@@ -28,7 +28,7 @@ export default function SiteSlogan(props) {
   return (
     <SiteSloganWrapper>
       {isBackButtonVisible && <BackButton />}
-      <TypographySlogan color="primary" component="h2" typography="h3">
+      <TypographySlogan color="primary" component="h1" typography="h3">
         DREAMER & VISIONARY
       </TypographySlogan>
       <HamburgerMenu />

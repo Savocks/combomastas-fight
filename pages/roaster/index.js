@@ -1,49 +1,93 @@
-import {
-  Card,
-  CardActionArea,
-  CardMedia,
-  Container,
-  Grid,
-  Typography,
-} from '@mui/material';
 import { getAllRoaster } from '../../lib/roaster';
+import {
+  Box,
+  Button,
+  Card,
+  Grid,
+  Paper,
+  styled,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
+import styles from '../../styles/components/Home.module.scss';
+import Image from 'next/image';
+import Link from 'next/link';
+import FightLogo from '../../components/Logo/Logo';
+import SiteSlogan from '../../components/SiteSlogan/SiteSlogan';
+import SocialButton from '../../components/SocialButtons/SocialButton';
 import FightCard from '../../components/FightCard';
-import PageLayout from '../../components/Layout/PageLayout';
 
-const PageTitle = () => (
-  <Typography component="h2" typography="h2" color="primary">
-    #717417 MNGMNT
-  </Typography>
-);
+const PageContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
+  height: '100vh',
+  display: 'grid',
+  gridTemplateRows: '10% auto 10%',
+  gridRowGap: '1em',
+}));
 
-const PageDescription = () => (
-  <Typography>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-    consectetur cumque dignissimos dolor doloremque excepturi facilis illo
-    inventore ipsa maxime molestias non odio, placeat rerum sint tempora tempore
-    voluptate voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing
-    elit. Accusamus hic in magnam, maxime
-  </Typography>
-);
+const PageHeader = styled(Paper)(({ theme }) => ({
+  display: 'grid',
+  gridTemplateColumns: '100%',
+  padding: '0 1.5em',
+  [theme.breakpoints.up('md')]: {
+    gridTemplateColumns: '200px auto',
+  },
+}));
 
 export default function Index({ allRoasterData }) {
+  const isTablet = useMediaQuery((theme) => theme.breakpoints.down('md'));
   return (
-    <>
-      <PageLayout
-        pageTitle={<PageTitle />}
-        pageDescription={<PageDescription />}
-      >
-        <Container className="my-14">
-          <Grid container spacing={4} alignItems="stretch">
+    <PageContainer>
+      <PageHeader elevation={8}>
+        <FightLogo />
+        {!isTablet && (
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+            }}
+          >
+            <SocialButton social="facebook" />
+            <SocialButton social="instagram" />
+            <SocialButton social="twitter" />
+            <SocialButton social="youtube" />
+            <SocialButton social="twitch" />
+            <SocialButton social="telegram" />
+          </Box>
+        )}
+      </PageHeader>
+      <div>
+        <SiteSlogan />
+        <Box
+          sx={{
+            padding: '0 1em',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1em',
+          }}
+        >
+          <Typography typography="h3" color="primary">
+            #71417 FIGHT
+          </Typography>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Consequuntur doloribus est illum ipsa ipsam modi, nostrum quae, quam
+            quos rem reprehenderit tenetur voluptas? Deserunt minima nesciunt
+            porro qui sint ut.
+          </Typography>
+          <Grid container>
             {allRoasterData.map((roaster) => (
-              <Grid item xs={12} md={3} key={roaster.name}>
+              <Grid key={roaster.name} item xs={12}>
                 <FightCard item={roaster} />
               </Grid>
             ))}
           </Grid>
-        </Container>
-      </PageLayout>
-    </>
+        </Box>
+      </div>
+      <div>ciao</div>
+    </PageContainer>
   );
 }
 
