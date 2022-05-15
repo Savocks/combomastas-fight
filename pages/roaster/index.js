@@ -21,7 +21,7 @@ const PageContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   height: '100vh',
   display: 'grid',
-  gridTemplateRows: '10% auto 10%',
+  gridTemplateRows: '10% auto',
   gridRowGap: '1em',
 }));
 
@@ -86,7 +86,6 @@ export default function Index({ allRoasterData }) {
           </Grid>
         </Box>
       </div>
-      <div>ciao</div>
     </PageContainer>
   );
 }
