@@ -12,4 +12,8 @@ body {
   box-sizing: content-box;
 }
 
+body * {
+  box-sizing: border-box;
+}
+
 
