@@ -7,7 +7,7 @@ export default function Index({ allRoasterData }) {
   return (
     <PageLayout>
       <Typography typography="h3" color="primary">
-        #71417 FIGHT
+        #71417 MNGMNT
       </Typography>
       <Typography>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur

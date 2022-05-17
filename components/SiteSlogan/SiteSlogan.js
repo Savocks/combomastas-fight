@@ -8,6 +8,7 @@ const SiteSloganWrapper = styled(Box)((them) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '0 1.5em',
+  margin: '0 0 1em 0',
 }));
 
 const TypographySlogan = styled(Typography)(({ theme }) => ({

@@ -17,7 +17,6 @@ const PageContainer = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateRows: '10% auto',
   gridRowGap: '1em',
-  overflow: 'hidden',
 }));
 
 const PageHeader = styled(Paper)(({ theme }) => ({

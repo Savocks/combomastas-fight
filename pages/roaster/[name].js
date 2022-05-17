@@ -1,8 +1,18 @@
 import { getAllRoasterNames, getRoasterData } from '../../lib/roaster';
-import { Box, Card, Link, List, ListItem, Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  Grid,
+  Link,
+  List,
+  ListItem,
+  Typography,
+} from '@mui/material';
 import Carousel from '../../components/Carousel/Carousel';
 import SocialButton from '../../components/SocialButtons/SocialButton';
 import PageLayout from '../../components/Layout/PageLayout';
+import Image from 'next/image';
+import FightCarousel from '../../components/Carousel/Carousel';
 
 export default function Roaster({ roasterData }) {
   return (
@@ -24,12 +34,61 @@ export default function Roaster({ roasterData }) {
         >
           {roasterData.name}
         </Typography>
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-          consequuntur cum dolore, dolorum ducimus eius esse est expedita id
-          incidunt ipsum minima, molestias mollitia obcaecati quia? Nostrum
-          omnis quis quisquam.
+        <Typography>{roasterData.biography}</Typography>
+        <Box>
+          <Typography
+            component="h2"
+            typography="h2"
+            textTransform="uppercase"
+            color="primary"
+          >
+            Ultime uscite
+          </Typography>
+          <List>
+            {roasterData.latestRelease.map((release) => (
+              <ListItem button key={release.name}>
+                <Link href={release.link} target="_blank">
+                  {release.name}
+                  {' - '}
+                  {release.releaseYear}
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Box>
+          <Typography
+            component="h2"
+            typography="h2"
+            textTransform="uppercase"
+            color="primary"
+          >
+            EVENTI
+          </Typography>
+          <List>
+            {roasterData.nextEvents.map((event) => (
+              <ListItem button key={event.name}>
+                <Link href={event.link} target="_blank">
+                  {event.name}
+                </Link>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <FightCarousel imagesList={roasterData.images} />
+        <Typography
+          component="h2"
+          typography="h2"
+          textTransform="uppercase"
+          color="primary"
+        >
+          Social
         </Typography>
+        <Box className="flex flex-wrap">
+          {roasterData.socials.map((social) => (
+            <SocialButton key={social.socialName} social={social.socialName} />
+          ))}
+        </Box>
       </Card>
     </PageLayout>
   );

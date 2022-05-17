@@ -1,56 +1,55 @@
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Dialog,
-  IconButton,
-  Paper,
-} from '@mui/material';
-import { useState } from 'react';
-import { IoClose } from '@react-icons/all-files/io5/IoClose';
+import { Box, styled } from '@mui/material';
 import Image from 'next/image';
 
-const ItemContainer = ({ items }) => {
+function FightCarouselContainer({ children }) {
   return (
-    <div className="relative flex max-h-[400px] w-full snap-x snap-mandatory snap-mandatory gap-8 overflow-x-auto overflow-y-hidden py-12 px-5">
-      {items.map((item) => (
-        <ItemElement item={item} key={item.name} />
+    <Box
+      sx={(theme) => ({
+        display: 'grid',
+        gridAutoFlow: 'column',
+        gridAutoColumns: '80%',
+        gap: '1em',
+        overflowX: 'auto',
+        position: 'relative',
+        [theme.breakpoints.up('xs')]: {
+          gridAutoColumns: '40%',
+        },
+        [theme.breakpoints.up('sm')]: {
+          gridAutoColumns: '20%',
+        },
+      })}
+    >
+      {children}
+    </Box>
+  );
+}
+
+function FightCarouselItem({ name, href }) {
+  return (
+    <Box
+      key={name}
+      sx={{
+        position: 'relative',
+      }}
+    >
+      <Image
+        src={href}
+        alt={name}
+        height={200}
+        width={300}
+        layout="intrinsic"
+        objectFit="cover"
+      />
+    </Box>
+  );
+}
+
+export default function FightCarousel({ imagesList }) {
+  return (
+    <FightCarouselContainer>
+      {imagesList.map(({ href, name }) => (
+        <FightCarouselItem key={name} href={href} name={name} />
       ))}
-    </div>
-  );
-};
-
-const ItemElement = ({ item }) => {
-  const [open, setOpen] = useState(false);
-  const href = item.previewImage ? item.previewImage : item.href;
-  return (
-    <Card className="h-full w-[250px] shrink-0 grow-0 snap-center snap-always">
-      <CardActionArea onClick={() => setOpen(true)}>
-        <CardMedia component="img" image={href} alt={item.name} />
-      </CardActionArea>
-      <Dialog fullScreen open={open} sx={{ p: 4 }}>
-        <Box className="relative flex h-full w-full items-center justify-center">
-          <IconButton
-            onClick={() => setOpen(false)}
-            className="absolute top-2 right-2"
-          >
-            <IoClose />
-          </IconButton>
-          {item.previewImage && <video src={item.href} controls autoPlay />}
-          {!item.previewImage && (
-            <Image layout="fill" src={item.href} alt={item.name} />
-          )}
-        </Box>
-      </Dialog>
-    </Card>
-  );
-};
-
-export default function Carousel({ items }) {
-  return (
-    <>
-      <ItemContainer items={items} />
-    </>
+    </FightCarouselContainer>
   );
 }
